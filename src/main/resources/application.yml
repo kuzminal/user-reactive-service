@@ -4,3 +4,6 @@ spring:
       host: localhost
       port: 27017
       database: users
+jwt:
+  secretKey: fsdfd@re432!!3dr*ew#dgdrg%dfdf&
+  validityInMs: 3600000
