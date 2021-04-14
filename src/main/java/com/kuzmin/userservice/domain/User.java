@@ -1,9 +1,6 @@
 package com.kuzmin.userservice.domain;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.IndexDirection;
@@ -19,22 +16,22 @@ import java.util.Collection;
 
 @Document
 @Data
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 public class User implements UserDetails {
     private static final long serialVersionUID = 1L;
     @Id
     private ObjectId id;
     @Indexed(name = "username", direction = IndexDirection.ASCENDING)
-    private final String username;
-    private final String password;
+    private String username;
+    private String password;
     @TextIndexed
-    private final String fullname;
-    private final String street;
-    private final String city;
-    private final String state;
-    private final String zip;
-    private final String phoneNumber;
+    private String fullname;
+    private String street;
+    private String city;
+    private String state;
+    private String zip;
+    private String phoneNumber;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
